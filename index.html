@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interview Copilot – Private Windows AI Assistant</title>
+
+  <meta name="description" content="Invisible is a privacy-first Windows desktop app that runs 100% locally and remains completely invisible to screen sharing software." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <meta name="keywords" content="Invisible Windows app, screen share invisible app, private AI assistant, Windows AI tool" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --primary: #3b82f6;
+      --accent: #22d3ee;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 1rem;
+    }
+
+    p.lead {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2.5rem;
+      padding: 1rem 2.75rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #020617;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 0 40px rgba(34,211,238,.35);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 60px rgba(34,211,238,.6);
+    }
+
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: rgba(2,6,23,.75);
+      border: 1px solid rgba(148,163,184,.15);
+      border-radius: 18px;
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 3D BACKGROUND -->
+<canvas id="bg"></canvas>
+
+<header>
+  <div>
+    <h1>Interview Copilot</h1>
+    <p class="lead">
+      A privacy-first, local-only Windows AI assistant that stays completely invisible to screen sharing software.
+    </p>
+    <a href="download/Invisible-Setup.exe" class="btn">Download for Windows</a>
+  </div>
+</header>
+
+<section>
+  <h2>Why Interview Copilot ?</h2>
+  <p class="lead">
+    Invisible is built for interviews, meetings, and focused work — without ever appearing in Zoom, Teams, OBS, or Discord.
+    No cloud. No tracking. No compromises.
+  </p>
+</section>
+
+<section>
+  <h2>Key Features</h2>
+  <div class="grid">
+    <div class="card">✅ Runs 100% locally</div>
+    <div class="card">🫥 Invisible to screen sharing (SetWindowDisplayAffinity)</div>
+    <div class="card">⚡ Real-time AI streaming [Claude, Grok, Gemini, ChatGPT]</div>
+    <div class="card">🔒 Encrypted local storage (AES-256)</div>
+    <div class="card">⌨ Global hotkeys</div>
+    <div class="card">🚫 No backend server required</div>
+    <div class="card">👁 Auto-hides during screen sharing</div>
+    <div class="card">🧠 Notes, chat & templates</div>
+  </div>
+</section>
+
+<section>
+  <h2>How It Works</h2>
+  <div class="grid">
+    <div class="card">
+      <strong>Electron + Native Windows APIs</strong>
+      <p>Uses native C++ bindings to exclude the app from capture APIs.</p>
+    </div>
+    <div class="card">
+      <strong>Client-Side AI Streaming</strong>
+      <p>Direct Claude API streaming. No proxy, no middleman.</p>
+    </div>
+    <div class="card">
+      <strong>Local Encrypted Storage</strong>
+      <p>SQLite with AES-256 encryption. Nothing leaves your machine.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>System Requirements</h2>
+  <ul>
+    <li>Windows 10 / 11</li>
+    <li>4 GB RAM minimum</li>
+    <li>Visual Studio Build Tools 2022 (for development)</li>
+    <li>Node.js 18.x (for development)</li>
+    <li>Python 3.10 (for development)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Privacy Guarantees</h2>
+  <div class="grid">
+    <div class="card">❌ No telemetry</div>
+    <div class="card">❌ No analytics</div>
+    <div class="card">❌ No cloud storage</div>
+    <div class="card">❌ No tracking pixels</div>
+    <div class="card">✅ API key never leaves device</div>
+    <div class="card">✅ Undetectable to screen share</div>
+  </div>
+</section>
+
+<section>
+  <h2>FAQ</h2>
+  <div class="card">
+    <strong>Will Invisible appear in Zoom or OBS?</strong>
+    <p>No. It uses native Windows capture exclusion (WDA_EXCLUDEFROMCAPTURE).</p>
+  </div>
+  <div class="card">
+    <strong>Is my data stored anywhere?</strong>
+    <p>No. All data stays encrypted on your local machine.</p>
+  </div>
+</section>
+
+<footer>
+  Invisible © 2025 — Private Use Only
+</footer>
+
+<!-- THREE.JS BACKGROUND -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 60;
+
+  const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg'), alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const geometry = new THREE.BufferGeometry();
+  const count = 1200;
+  const positions = new Float32Array(count * 3);
+
+  for (let i = 0; i < positions.length; i++) {
+    positions[i] = (Math.random() - 0.5) * 200;
+  }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+  const material = new THREE.PointsMaterial({
+    color: 0x22d3ee,
+    size: 0.6,
+    transparent: true
+  });
+
+  const points = new THREE.Points(geometry, material);
+  scene.add(points);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    points.rotation.y += 0.0005;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+</script>
+
+</body>
+</html>
