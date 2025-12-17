@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets\invisible-man.png">
+  <title>Interview Copilot – Private Windows AI Assistant</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy-first invisible Windows AI assistant. 100% local. Undetectable during screen sharing." />
+
+  <!-- Font Awesome (WORKING) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --primary: #3b82f6;
+      --accent: #22d3ee;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 980px;
+      margin: auto;
+    }
+
+    section {
+      padding: 6rem 1.5rem;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    p.lead {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-top: 1.25rem;
+      max-width: 720px;
+    }
+
+    /* Hero */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Button */
+    .btn {
+      margin: 3rem auto 0;
+      padding: 1rem 2.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #020617;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 40px rgba(34, 211, 238, 0.35);
+      transition: all .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(34, 211, 238, 0.55);
+    }
+
+    .btn img {
+      width: 22px;
+      height: 22px;
+    }
+
+    /*top_widget*/
+    .top_widget_main {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      color: var(--muted);
+    }
+
+
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Card */
+    .card {
+      background: rgba(2, 6, 23, 0.6);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(34, 211, 238, 0.15);
+    }
+
+    .card i {
+      font-size: 1.7rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1.5rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Three.js Background -->
+  <canvas id="bg"></canvas>
+
+  <!-- HERO -->
+  <header>
+    <div class="container">
+      <h1>Interview Copilot</h1>
+      <p class="lead">
+        A privacy-first, local-only Windows AI assistant that stays completely invisible to screen sharing software.
+      </p>
+
+      <a href="#" class="btn">
+        <img src="assets/win.png" alt="">
+        Download for Windows
+      </a>
+
+      <div class="top_widget_main">
+        <div class="top_widget"><i class="fa-solid fa-shield-halved" style="color: #57ff57;"></i> 100% Undetectable</div>
+        <div class="top_widget"><i class="fa-solid fa-bolt" style="color: rgb(155, 155, 255);"></i> Instant Responses</div>
+        <div class="top_widget"><i class="fa-regular fa-eye" style="color: rgb(255, 0, 255);"></i> Screen Share Safe</div>
+        <div class="top_widget"><i class="fa-solid fa-lock" style="color: rgb(237, 255, 104);"></i></i> Privacy-First</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- WHY -->
+  <section>
+    <div class="container">
+      <h2>Why Interview Copilot?</h2>
+      <p class="lead">
+        Built for interviews, meetings, and deep focus — without ever appearing in Zoom, Teams, OBS, or Discord.
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="container">
+      <h2>Key Features</h2>
+      <div class="grid">
+        <div class="card"><i class="fa-solid fa-computer"></i><strong>100% Local</strong>Runs fully on your machine</div>
+        <div class="card"><i class="fa-solid fa-eye-slash"></i><strong>Invisible</strong>Hidden from screen capture</div>
+        <div class="card"><i class="fa-solid fa-bolt"></i><strong>Real-time AI</strong>Grok, Claude, GPT, Gemini streaming</div>
+        <div class="card"><i class="fa-solid fa-lock"></i><strong>Encrypted</strong>AES-256 local storage</div>
+        <div class="card"><i class="fa-solid fa-keyboard"></i><strong>Hotkeys</strong>Global system shortcuts</div>
+        <div class="card"><i class="fa-solid fa-server"></i><strong>No Server</strong>No backend required</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="grid">
+        <div class="card">
+          <i class="fa-solid fa-microchip"></i>
+          <strong>Native Windows APIs</strong>
+          Uses capture-exclusion flags at OS level
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-wave-square"></i>
+          <strong>Client-Side AI</strong>
+          Direct streaming from AI providers
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-database"></i>
+          <strong>Encrypted Storage</strong>
+          Nothing leaves your device
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEM -->
+  <section>
+    <div class="container">
+      <h2>System Requirements</h2>
+      <ul>
+        <li>Windows 10 / 11</li>
+        <li>4GB RAM minimum</li>
+        <li>Node.js 18+ (development)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    Interview Copilot © 2025 — Private Use Only
+  </footer>
+
+  <!-- THREE.JS -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 60;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg'), alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const geometry = new THREE.BufferGeometry();
+    const count = 1200;
+    const positions = new Float32Array(count * 3);
+
+    for (let i = 0; i < positions.length; i++) {
+      positions[i] = (Math.random() - 0.5) * 200;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({
+      color: 0x22d3ee,
+      size: 0.6,
+      transparent: true
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      points.rotation.y += 0.0005;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+</body>
+</html>
